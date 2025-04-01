@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login - KBC</title>
+  <link rel="stylesheet" href="../static/css/login.css">
+</head>
+
+<body>
+  <div class="container">
+    <h2>Admin Login</h2>
+    <form action="{{ url_for('admin_login') }}" method="post">
+      {% if error %}
+      <p style="color: red; font-weight: bold;">{{ error }}</p>
+      {% endif %}
+
+      <label>Admin ID:</label>
+      <input type="text" name="admin_id" placeholder="Admin ID" required>
+
+      <label>Password:</label>
+      <input type="password" name="admin_password" placeholder="Password" required>
+
+      <button type="submit">Login as Admin</button>
+    </form>
+  </div>
+</body>
+
+</html>

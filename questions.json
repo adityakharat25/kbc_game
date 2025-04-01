@@ -1,0 +1,614 @@
+
+    [
+    {
+        "question": "What is the capital of India?",
+        "options": ["Mumbai", "Delhi", "Kolkata", "Chennai"],
+        "answer": "Delhi"
+    },
+    {
+        "question": "Which is the national animal of India?",
+        "options": ["Lion", "Tiger", "Elephant", "Leopard"],
+        "answer": "Tiger"
+    },
+    {
+        "question": "Who is known as the 'Father of the Nation' in India?",
+        "options": ["Jawaharlal Nehru", "Sardar Patel", "Mahatma Gandhi", "Subhash Chandra Bose"],
+        "answer": "Mahatma Gandhi"
+    },
+    {
+        "question": "Which planet is known as the Red Planet?",
+        "options": ["Venus", "Mars", "Jupiter", "Saturn"],
+        "answer": "Mars"
+    },
+    {
+        "question": "Which is the smallest planet in our solar system?",
+        "options": ["Mercury", "Mars", "Pluto", "Venus"],
+        "answer": "Mercury"
+    },
+    {
+        "question": "Which is the largest ocean on Earth?",
+        "options": ["Indian Ocean", "Atlantic Ocean", "Arctic Ocean", "Pacific Ocean"],
+        "answer": "Pacific Ocean"
+    },
+    {
+        "question": "Which gas is most abundant in Earth's atmosphere?",
+        "options": ["Oxygen", "Carbon Dioxide", "Nitrogen", "Hydrogen"],
+        "answer": "Nitrogen"
+    },
+    {
+        "question": "Which is the longest river in India?",
+        "options": ["Brahmaputra", "Yamuna", "Ganga", "Godavari"],
+        "answer": "Ganga"
+    },
+    {
+        "question": "What is the currency of Japan?",
+        "options": ["Yuan", "Won", "Yen", "Ringgit"],
+        "answer": "Yen"
+    },
+    {
+        "question": "What is the largest mammal?",
+        "options": ["Elephant", "Blue Whale", "Giraffe", "Hippopotamus"],
+        "answer": "Blue Whale"
+    },
+    {
+        "question": "Which country is known as the 'Land of the Rising Sun'?",
+        "options": ["China", "Japan", "Thailand", "South Korea"],
+        "answer": "Japan"
+    },
+    {
+        "question": "Who wrote the Indian National Anthem?",
+        "options": ["Rabindranath Tagore", "Bankim Chandra Chatterjee", "Sarojini Naidu", "Subhash Chandra Bose"],
+        "answer": "Rabindranath Tagore"
+    },
+    {
+        "question": "Who painted the Mona Lisa?",
+        "options": ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Michelangelo"],
+        "answer": "Leonardo da Vinci"
+    },
+    {
+        "question": "Who invented the telephone?",
+        "options": ["Thomas Edison", "Alexander Graham Bell", "Nikola Tesla", "Guglielmo Marconi"],
+        "answer": "Alexander Graham Bell"
+    },
+    {
+        "question": "How would one say goodbye in Spanish?",
+        "options": ["Hola", "Au Revoir", "Salir", "Adiós"],
+        "answer": "Adiós"
+    },
+     {
+        "question": "What does VR stand for?",
+        "options": ["Very Real", "Visual Recognition", "Voice Recognition", "Virtual Reality"],
+        "answer": "Virtual Reality"
+    },
+    {
+        "question": "How many Harry Potter books are there?",
+        "options": ["8", "5", "6", "7"],
+        "answer": "7"
+    },
+    {
+        "question": "What is the unit of electrical resistance?",
+        "options": ["Mho", "Tesla", "Joule", "Ohm"],
+        "answer": "Ohm"
+    },
+    {
+        "question": "Who plays protagonist Ethan Hunt in the 'Mission: Impossible' film series?",
+        "options": ["Johnny Depp", "Sean Connery", "Pierce Brosnan", "Tom Cruise"],
+        "answer": "Tom Cruise"
+    },
+    {
+        "question": "Which UK country features a dragon on their flag?",
+        "options": ["England", "North Ireland", "Scotland", "Wales"],
+        "answer": "Wales"
+    },
+    {
+        "question": "Kuala Lumpur is the capital of which country?",
+        "options": ["Indonesia", "Singapore", "Thailand", "Malaysia"],
+        "answer": "Malaysia"
+    },
+    {
+        "question": "Which of these is NOT a city in India?",
+        "options": ["Noida", "Ahmedabad", "Ghaziabad", "Islamabad"],
+        "answer": "Islamabad"
+    },
+    {
+        "question": "In which country was the Statue of Liberty built and exported to the United States of America?",
+        "options": ["Germany", "Spain", "England", "France"],
+        "answer": "France"
+    },
+    {
+        "question": "What was the first sport to have been played on the moon?",
+        "options": ["Football", "Tennis", "Soccer", "Golf"],
+        "answer": "Golf"
+    },
+    {
+        "question": "Which of these games includes the phrase 'Do not pass Go, do not collect $200'?",
+        "options": ["Pay Day", "Cluedo", "Coppit", "Monopoly"],
+        "answer": "Monopoly"
+    },
+    {
+        "question": "Where are the cars of the brand Ferrari manufactured?",
+        "options": ["Romania", "Germany", "Russia", "Italy"],
+        "answer": "Italy"
+    },
+    {
+        "question": "How many time zones does China have?",
+        "options": ["3", "4", "2", "1"],
+        "answer": "1"
+    },
+    {
+        "question": "Which country is completely landlocked by South Africa?",
+        "options": ["Swaziland", "Botswana", "Zimbabwe", "Lesotho"],
+        "answer": "Lesotho"
+    },
+    {
+        "question": "What is the name of the Canadian national anthem?",
+        "options": ["O Red Maple", "Leaf-Spangled Banner", "March of the Puck Drop", "O Canada"],
+        "answer": "O Canada"
+    },
+    {
+        "question": "What is the highest belt you can get in Taekwondo?",
+        "options": ["White", "Red", "Green", "Black"],
+        "answer": "Black"
+    },
+    {
+        "question": "Which of these countries remained neutral during World War II?",
+        "options": ["United Kingdom", "France", "Italy", "Switzerland"],
+        "answer": "Switzerland"
+    },
+    {
+        "question": "What year did World War I begin?",
+        "options": ["1905", "1919", "1925", "1914"],
+        "answer": "1914"
+    },
+    {
+        "question": "How long did World War II last?",
+        "options": ["4 years", "5 years", "7 years", "6 years"],
+        "answer": "6 years"
+    },
+    {
+        "question": "What does the computer software acronym JVM stand for?",
+        "options": [
+            "Java Vendor Machine",
+            "Java Visual Machine",
+            "Just Virtual Machine",
+            "Java Virtual Machine"
+        ],
+        "answer": "Java Virtual Machine"
+    },
+    {
+        "question": "How many countries are larger than Australia?",
+        "options": ["4", "3", "6", "5"],
+        "answer": "5"
+    },
+    {
+        "question": "Myopia is the scientific term for which condition?",
+        "options": ["Farsightedness", "Double Vision", "Clouded Vision", "Shortsightedness"],
+        "answer": "Shortsightedness"
+    },
+    {
+        "question": "When was Google founded?",
+        "options": ["October 9, 1997", "December 12, 1989", "February 7, 2000", "September 4, 1998"],
+        "answer": "September 4, 1998"
+    },
+     {
+        "question": "What does the United States of America celebrate during the 4th of July?",
+        "options": ["The anniversary of the Battle of Gettysburg", "The crossing of the Delaware River", "The ratification of the Constitution", "The signing of the Declaration of Independence"],
+        "answer": "The signing of the Declaration of Independence"
+    },
+    {
+        "question": "The Election Commission of India is a ____ body.",
+        "options": ["Constitutional", "Statutory", "Executive", "Judicial"],
+        "answer": "Constitutional"
+    },
+    {
+        "question": "Which article of the Indian Constitution grants special status to Jammu & Kashmir?",
+        "options": ["Article 370", "Article 365", "Article 356", "Article 335"],
+        "answer": "Article 370"
+    },
+    {
+        "question": "On which continent(s) is the entire country of Spain specifically located when taking into account all of its territory?",
+        "options": ["Europe, Africa and Asia", "Europe", "Europe and Asia", "Europe and Africa"],
+        "answer": "Europe and Africa"
+    },
+    {
+        "question": "Which country is completely landlocked by South Africa?",
+        "options": ["Swaziland", "Botswana", "Zimbabwe", "Lesotho"],
+        "answer": "Lesotho"
+    },
+    {
+        "question": "Which of the following was Brazil a former colony under?",
+        "options": ["Spain", "The Netherlands", "France", "Portugal"],
+        "answer": "Portugal"
+    },
+    {
+        "question": "Who led the Communist Revolution of Russia?",
+        "options": ["Joseph Stalin", "Vladimir Putin", "Mikhail Gorbachev", "Vladimir Lenin"],
+        "answer": "Vladimir Lenin"
+    },
+    {
+        "question": "Which fundamental right was removed from the Indian Constitution by the 44th Amendment?",
+        "options": ["Right to Property", "Right to Equality", "Right to Freedom", "Right to Education"],
+        "answer": "Right to Property"
+    },
+    {
+        "question": "Which Indian Prime Minister gave the slogan 'Garibi Hatao'?",
+        "options": ["Indira Gandhi", "Jawaharlal Nehru", "Lal Bahadur Shastri", "Narendra Modi"],
+        "answer": "Indira Gandhi"
+    },
+    {
+        "question": "Which state in India has the largest number of seats in Lok Sabha?",
+        "options": ["Uttar Pradesh", "Maharashtra", "West Bengal", "Bihar"],
+        "answer": "Uttar Pradesh"
+    },
+    {
+        "question": "Which article of the Indian Constitution deals with the emergency provisions?",
+        "options": ["Article 352", "Article 356", "Article 360", "Article 370"],
+        "answer": "Article 352"
+    },
+    {
+        "question": "Who is the lead singer of the band Coldplay?",
+        "options": ["Chris Isaak", "Chris Wallace", "Chris Connelly", "Chris Martin"],
+        "answer": "Chris Martin"
+    },
+    {
+        "question": "Which ancient Indian university was destroyed by Bakhtiyar Khilji?",
+        "options": ["Nalanda", "Takshashila", "Vikramshila", "Ujjain"],
+        "answer": "Nalanda"
+    },
+    {
+        "question": "Which Indian social reformer started the Brahmo Samaj?",
+        "options": ["Swami Vivekananda", "Raja Ram Mohan Roy", "Ishwar Chandra Vidyasagar", "Dayanand Saraswati"],
+        "answer": "Raja Ram Mohan Roy"
+    },
+
+    {
+        "question": "Who was the founder of the Maurya Empire?",
+        "options": ["Ashoka", "Chandragupta Maurya", "Bindusara", "Harsha"],
+        "answer": "Chandragupta Maurya"
+    },
+    {
+        "question": "Which Indian king defeated Alexander's general Seleucus Nicator?",
+        "options": ["Chandragupta Maurya", "Ashoka", "Samudragupta", "Harsha"],
+        "answer": "Chandragupta Maurya"
+    },
+    {
+        "question": "Who was the last Viceroy of British India?",
+        "options": ["Lord Mountbatten", "Lord Wavell", "Lord Linlithgow", "Lord Curzon"],
+        "answer": "Lord Mountbatten"
+    },
+    {
+        "question": "Who was the first Mughal emperor of India?",
+        "options": ["Babur", "Akbar", "Humayun", "Shah Jahan"],
+        "answer": "Babur"
+    },
+    {
+        "question": "Which Indian ruler fought against the British in the Battle of Seringapatam?",
+        "options": ["Tipu Sultan", "Shivaji Maharaj", "Rani Lakshmibai", "Bahadur Shah Zafar"],
+        "answer": "Tipu Sultan"
+    },
+    {
+        "question": "What does LASER stand for?",
+        "options": [
+            "Lite analysing by stereo ecorazer",
+            "Light amplifier by standby energy of radio",
+            "Life antimatter by standing entry of range",
+            "Light amplification by stimulated emission of radiation"
+        ],
+        "answer": "Light amplification by stimulated emission of radiation"
+    },
+    {
+        "question": "Which file-sharing service, launched in 1999, became infamous for music piracy?",
+        "options": ["Napster", "LimeWire", "Kazaa", "BitTorrent"],
+        "answer": "Napster"
+    },
+    {
+        "question": "Which company introduced the first commercial solid-state drive (SSD) in 1991?",
+        "options": ["Intel", "SanDisk", "Western Digital", "Samsung"],
+        "answer": "SanDisk"
+    },
+    {
+        "question": "Which programming language, released in 1995, became one of the most dominant in web development?",
+        "options": ["Python", "JavaScript", "C#", "Ruby"],
+        "answer": "JavaScript"
+    },
+    {
+        "question": "What was the first **3D-printed organ** successfully implanted in a human in 1999?",
+        "options": ["Heart", "Liver", "Bladder", "Kidney"],
+        "answer": "Bladder"
+    },
+    {
+        "question": "Which early **cloud storage service**, launched in 2007, revolutionized data accessibility?",
+        "options": ["Google Drive", "Dropbox", "OneDrive", "iCloud"],
+        "answer": "Dropbox"
+    },
+    {
+        "question": "Which **wireless data transfer technology**, first introduced in 1994, became a key part of short-range communication?",
+        "options": ["Bluetooth", "Infrared", "Wi-Fi Direct", "Zigbee"],
+        "answer": "Bluetooth"
+    },
+    {
+        "question": "Which **major social networking site**, launched in 2003, focused on professional connections?",
+        "options": ["Facebook", "LinkedIn", "Twitter", "MySpace"],
+        "answer": "LinkedIn"
+    },
+    {
+        "question": "Which Indian animated show features two brothers living in the fictional town of Furfuri Nagar?",
+        "options": ["Chhota Bheem", "Motu Patlu", "Roll No. 21", "Krishna Balram"],
+        "answer": "Motu Patlu"
+    },
+    {
+        "question": "What is the name of the boy in **Shinchan**?",
+        "options": ["Shinzo Nohara", "Hiroshi Nohara", "Shinnosuke Nohara", "Kazama"],
+        "answer": "Shinnosuke Nohara"
+    },
+    {
+        "question": "Which Indian animated series follows a schoolboy who fights evil with divine powers?",
+        "options": ["Roll No. 21", "Bala Hanuman", "Little Krishna", "Shaktimaan"],
+        "answer": "Roll No. 21"
+    },
+    {
+        "question": "Which of the following is NOT an official type of Haki in the japanese anime **One Piece**?",
+        "options": ["Observation Haki", "Conqueror's Haki", "Destruction Haki", "Armament Haki"],
+        "answer": "Destruction Haki"
+    },
+    {
+        "question": "Which Marvel superhero is known as the 'Merc with a Mouth'?",
+        "options": ["Deadpool", "Spider-Man", "Wolverine", "Moon Knight"],
+        "answer": "Deadpool"
+    },
+    {
+        "question": "Which Infinity Stone was hidden on Vormir?",
+        "options": ["Soul Stone", "Reality Stone", "Time Stone", "Power Stone"],
+        "answer": "Soul Stone"
+    },
+    {
+        "question": "Which Marvel movie introduced the character Black Panther?",
+        "options": ["Black Panther", "Avengers: Age of Ultron", "Captain America: Civil War", "Thor: Ragnarok"],
+        "answer": "Captain America: Civil War"
+    },
+    {
+        "question": "Which character created Ultron in the comics?",
+        "options": ["Tony Stark", "Bruce Banner", "Hank Pym", "Nick Fury"],
+        "answer": "Hank Pym"
+    },
+    {
+        "question": "Which bowler has taken the most wickets in Test cricket history?",
+        "options": ["Muttiah Muralitharan", "Shane Warne", "James Anderson", "Anil Kumble"],
+        "answer": "Muttiah Muralitharan"
+    },
+    {
+        "question": "Which team won the first-ever Cricket World Cup in 1975?",
+        "options": ["India", "West Indies", "Australia", "England"],
+        "answer": "West Indies"
+    },
+    {
+        "question": "Who was the first cricketer to hit six sixes in an over in international cricket?",
+        "options": ["Herschelle Gibbs", "Yuvraj Singh", "Garfield Sobers", "Ravi Shastri"],
+        "answer": "Herschelle Gibbs"
+    },
+    {
+        "question": "Which cricketer holds the record for the highest individual score in Test cricket?",
+        "options": ["Don Bradman", "Virender Sehwag", "Brian Lara", "Matthew Hayden"],
+        "answer": "Brian Lara"
+    },
+    {
+        "question": "Who was the first captain to win the ICC T20 World Cup?",
+        "options": ["Mahendra Singh Dhoni", "Shahid Afridi", "Ricky Ponting", "Chris Gayle"],
+        "answer": "Mahendra Singh Dhoni"
+    },
+    {
+        "question": "Who holds the record for the fastest century in One Day Internationals (ODIs)?",
+        "options": ["Virat Kohli", "Chris Gayle", "AB de Villiers", "Sanath Jayasuriya"],
+        "answer": "AB de Villiers"
+    },
+    {
+        "question": "Which cricketer has played the most Test matches?",
+        "options": ["Sachin Tendulkar", "James Anderson", "Steve Waugh", "Jacques Kallis"],
+        "answer": "Sachin Tendulkar"
+    },
+    {
+        "question": "Which country played the first-ever Test match in cricket history?",
+        "options": ["Australia and England", "India and Pakistan", "South Africa and England", "West Indies and England"],
+        "answer": "Australia and England"
+    },
+    {
+        "question": "Which Indian state has the longest coastline?",
+        "options": ["Kerala", "Maharashtra", "Gujarat", "Tamil Nadu"],
+        "answer": "Gujarat"
+    },
+    {
+        "question": "The Western Ghats pass through how many Indian states?",
+        "options": ["4", "5", "6", "7"],
+        "answer": "6"
+    },
+    {
+        "question": "Which Indian state is known as the 'Jewel of the East'?",
+        "options": ["Meghalaya", "Manipur", "Nagaland", "Mizoram"],
+        "answer": "Manipur"
+    },
+    {
+        "question": "Which state is home to India's largest saltwater lake, Chilika Lake?",
+        "options": ["West Bengal", "Odisha", "Andhra Pradesh", "Gujarat"],
+        "answer": "Odisha"
+    },
+    {
+        "question": "Which Indian state is the largest producer of wheat?",
+        "options": ["Madhya Pradesh", "Punjab", "Uttar Pradesh", "Haryana"],
+        "answer": "Uttar Pradesh"
+    },
+     {
+        "question": "Which Indian state is the largest producer of rubber?",
+        "options": ["Kerala", "Tamil Nadu", "Assam", "Tripura"],
+        "answer": "Kerala"
+    },
+    {
+        "question": "Which Indian state has the highest number of tiger reserves?",
+        "options": ["Madhya Pradesh", "Karnataka", "Rajasthan", "Uttarakhand"],
+        "answer": "Madhya Pradesh"
+    },
+    {
+        "question": "Which Indian state has the highest number of UNESCO World Heritage Sites?",
+        "options": ["Maharashtra", "Karnataka", "Rajasthan", "Tamil Nadu"],
+        "answer": "Maharashtra"
+    },
+    {
+        "question": "Which city hosted the first modern Olympic Games in 1896?",
+        "options": ["Athens", "Paris", "London", "Rome"],
+        "answer": "Athens"
+    },
+    {
+        "question": "Which country has won the most Olympic medals in history?",
+        "options": ["China", "Russia", "United States", "Germany"],
+        "answer": "United States"
+    },
+    {
+        "question": "Which Indian athlete won the first individual Olympic gold medal for India?",
+        "options": ["Abhinav Bindra", "Milkha Singh", "Leander Paes", "Karnam Malleswari"],
+        "answer": "Abhinav Bindra"
+    },
+    {
+        "question": "Which country boycotted the 1980 Moscow Olympics?",
+        "options": ["United Kingdom", "United States", "Germany", "China"],
+        "answer": "United States"
+    },
+    {
+        "question": "Which country won the first-ever FIFA Olympic Gold Medal in men's football?",
+        "options": ["Uruguay", "Brazil", "Germany", "Italy"],
+        "answer": "Uruguay"
+    },
+    {
+        "question": "Which country has won the most Olympic gold medals in hockey?",
+        "options": ["Germany", "Australia", "India", "Netherlands"],
+        "answer": "India"
+    },
+    {
+        "question": "Which Olympic event combines cross-country skiing and rifle shooting?",
+        "options": ["Pentathlon", "Decathlon", "Biathlon", "Triathlon"],
+        "answer": "Biathlon"
+    },
+    {
+        "question": "Which Olympic Games had the most participating nations?",
+        "options": ["2012 London", "2016 Rio", "2020 Tokyo", "2008 Beijing"],
+        "answer": "2016 Rio"
+    },
+    {
+        "question": "Which of the following religions originated in China?",
+        "options": ["Shinto", "Zoroastrianism", "Taoism", "Hinduism"],
+        "answer": "Taoism"
+    },
+    {
+        "question": "What is the holiest city in Islam?",
+        "options": ["Jerusalem", "Mecca", "Medina", "Baghdad"],
+        "answer": "Mecca"
+    },
+    {
+        "question": "According to the Bible, what was the name of the city where Jesus performed his first miracle?",
+        "options": ["Jerusalem", "Bethlehem", "Cana", "Nazareth"],
+        "answer": "Cana"
+    },
+    {
+        "question": "Which Jewish festival commemorates the rededication of the Second Temple in Jerusalem?",
+        "options": ["Passover", "Yom Kippur", "Hanukkah", "Rosh Hashanah"],
+        "answer": "Hanukkah"
+    },
+    {
+        "question": "In Sikhism, what is the name of the community kitchen where free meals are served to all?",
+        "options": ["Gurdwara", "Langar", "Khalsa", "Seva"],
+        "answer": "Langar"
+    },
+    {
+        "question": "Which religion considers the Guru Granth Sahib as its eternal Guru?",
+        "options": ["Buddhism", "Sikhism", "Hinduism", "Jainism"],
+        "answer": "Sikhism"
+    },
+    {
+        "question": "According to Norse mythology, what is the final battle between gods and giants called?",
+        "options": ["Ragnarök", "Valhalla", "Midgard", "Yggdrasil"],
+        "answer": "Ragnarök"
+    },
+    {
+        "question": "What is the dominant religion in Indonesia?",
+        "options": ["Hinduism", "Christianity", "Islam", "Buddhism"],
+        "answer": "Islam"
+    },
+    {
+        "question": "Which ancient civilization is credited with the invention of the earliest known writing system, cuneiform?",
+        "options": ["Egyptians", "Sumerians", "Hittites", "Minoans"],
+        "answer": "Sumerians"
+    },
+    {
+        "question": "Which civilization built the city of Machu Picchu high in the Andes Mountains?",
+        "options": ["Aztecs", "Mayans", "Incas", "Olmecs"],
+        "answer": "Incas"
+    },
+    {
+        "question": "Which Mesopotamian civilization is known for its famous king Hammurabi and his code of laws?",
+        "options": ["Sumerians", "Assyrians", "Babylonians", "Akkadians"],
+        "answer": "Babylonians"
+    },
+    {
+        "question": "Which civilization is credited with the creation of the earliest known calendar system based on astronomy?",
+        "options": ["Egyptians", "Mayans", "Babylonians", "Chinese"],
+        "answer": "Mayans"
+    },
+    {
+        "question": "The ancient city of Mohenjo-daro was part of which civilization?",
+        "options": ["Egyptian", "Indus Valley", "Sumerian", "Hittite"],
+        "answer": "Indus Valley"
+    },
+    {
+        "question": "Which civilization is known for creating the world's first known sewage and drainage system?",
+        "options": ["Egyptians", "Babylonians", "Indus Valley", "Romans"],
+        "answer": "Indus Valley"
+    },
+    {
+        "question": "Which civilization is credited with developing the concept of longitude and latitude?",
+        "options": ["Romans", "Chinese", "Greeks", "Egyptians"],
+        "answer": "Greeks"
+    },
+    {
+        "question": "Which ancient civilization developed the abacus?",
+        "options": ["Egyptians", "Chinese", "Greeks", "Babylonians"],
+        "answer": "Chinese"
+    },
+    {
+        "question": "To what political party did Abraham Lincoln belong when elected POTUS?",
+        "options": ["Democrat", "Independent", "Whig", "Republican"],
+        "answer": "Republican"
+    },
+    {
+        "question": "The Ottoman Empire was dissolved after their loss in which war?",
+        "options": ["Crimean War", "Serbian Revolution", "Second Balkan War", "World War I"],
+        "answer": "World War I"
+    },
+    {
+        "question": "What country hosted the 2014 Winter Olympics?",
+        "options": ["Canada", "United States", "Germany", "Russia"],
+        "answer": "Russia"
+    },
+    {
+        "question": "Which nation hosted the FIFA World Cup in 2006?",
+        "options": ["United Kingdom", "Brazil", "South Africa", "Germany"],
+        "answer": "Germany"
+    },
+    {
+        "question": "Which one of these countries was NOT in the Central Powers during WWI?",
+        "options": ["Austria-Hungary", "Turkey", "Germany", "Spain"],
+        "answer": "Spain"
+    },
+    {
+        "question": "How long did World War II last?",
+        "options": ["4 years", "5 years", "7 years", "6 years"],
+        "answer": "6 years"
+    },
+    {
+        "question": "Which World War I treaty forced Germany to accept full responsibility for the war?",
+        "options": ["Treaty of Versailles", "Treaty of Brest-Litovsk", "Treaty of Saint-Germain", "Treaty of Trianon"],
+        "answer": "Treaty of Versailles"
+    },
+    {
+        "question": "Which country suffered the highest number of military and civilian casualties in World War II?",
+        "options": ["Germany", "Soviet Union", "China", "Japan"],
+        "answer": "Soviet Union"
+    }
+]

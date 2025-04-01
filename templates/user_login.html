@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login - KBC</title>
+    <link rel="stylesheet" href="../static/css/login.css">
+    <script src="../static/validate.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>User Login</h2>
+        <form action="{{ url_for('user_login') }}" method="post" onsubmit="return validateDOB()">
+            {% if error %}
+            <p style="color: red; font-weight: bold;">{{ error }}</p>
+            {% endif %}
+
+            <label>Name:</label>
+            <input type="text" name="name" placeholder="Name" required>
+
+            <label>Email Address:</label>
+            <input type="email" name="email" placeholder="Email Address" required>
+
+            <label>Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label>Qualification:</label>
+            <select name="qualification" required>
+                <option value="">Select Qualification</option>
+                <option value="10th Pass">10th Pass</option>
+                <option value="12th Pass">12th Pass</option>
+                <option value="Graduate">Graduate</option>
+                <option value="Not Literate">None</option>
+            </select>
+
+            <button type="submit">Login as User</button>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to KBC Game</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0c0c3c 0%, #1a1a5a 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .header h1 {
+            font-size: 40px;
+            margin: 0;
+            color: #ffcc00;
+            text-align: left;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+            text-align: center;
+            vertical-align: center;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            font-size: 18px;
+            text-decoration: none;
+            background-color: #ffcc00;
+            color: #0c0c3c;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease-in-out, transform 0.2s;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn:hover {
+            background-color: #ffd700;
+            transform: scale(1.05);
+        }
+
+        .logo-container {
+            margin: 30px auto;
+            width: 100%;
+            height: 450px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .logo-container img {
+            max-width: 80%;
+            height: auto;
+        }
+
+        .about, .team {
+            margin: 40px auto;
+            max-width: 1200px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .team h2 {
+            color: #ffcc00;
+            font-size: 28px;
+        }
+
+        .team-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .team-member {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            width: 250px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .team-member:hover {
+            transform: scale(1.05);
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ffcc00;
+        }
+
+        .team-member h3 {
+            font-size: 22px;
+            margin: 10px 0 5px;
+        }
+
+        .team-member p {
+            font-size: 16px;
+            color: #dcdcdc;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Kaun Banega Crorepati (KBC)</h1>
+        <div class="nav-buttons">
+            <a href="#how-to-play" class="btn">About</a>
+            <a href="#team" class="btn">Team</a>
+            <a href="{{ url_for('admin_login') }}" class="btn">Login as Admin</a>
+            <a href="{{ url_for('user_login') }}" class="btn">Login as User</a>
+        </div>
+    </div>
+
+    <div class="logo-container">
+        <img src="../static/img/images-removebg-preview.png" alt="KBC Logo">
+    </div>
+
+    <div class="about" id="how-to-play">
+        <h2>About KBC</h2>
+        <p>Kaun Banega Crorepati (KBC) is one of the most popular quiz shows, where contestants answer questions 
+        to win huge cash prizes. Based on general knowledge and current affairs, the game tests players' intelligence 
+        across multiple levels. Are you ready to challenge yourself?</p>
+        <p>The game follows a structured format where participants progress through increasingly challenging questions. 
+        Each correct answer brings them closer to the grand prize, with multiple lifelines available to assist them. 
+        KBC is a thrilling test of knowledge, strategy, and decision-making.</p>
+        <p>With millions of fans worldwide, KBC has become a household name. Whether you're a trivia enthusiast or a casual player, 
+        the game offers a fun and engaging experience. Join now and see how far you can go!</p>
+    </div>
+
+    <div class="team" id="team">
+        <h2>Meet Our Team</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="../static/img/image-removebg-preview.png" alt="Team Member 1">
+                <h3>Neeraj Guduru</h3>
+                <p>Developer & Designer</p>
+            </div>
+            <div class="team-member">
+                <img src="../static/img/image-removebg-preview.png" alt="Team Member 2">
+                <h3>Aditya Kharat</h3>
+                <p>Back-End Specialist</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
