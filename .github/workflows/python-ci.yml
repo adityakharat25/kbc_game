@@ -1,0 +1,41 @@
+name: Python CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      
+      - name: Install dependencies
+        run: |
+          if [ -f "requirements.txt" ]; then
+            pip install -r requirements.txt
+          else
+            echo "No requirements.txt found, skipping."
+          fi
+      
+      - name: Run lint checks
+        run: |
+          pip install flake8
+          flake8 --ignore=E501 .
+      
+      - name: Run tests
+        run: |
+          if [ -f "test_app.py" ]; then
+            python -m unittest test_app.py
+          else
+            echo "No test_app.py found, skipping tests."
+          fi
