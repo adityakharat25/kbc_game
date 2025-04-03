@@ -2,8 +2,7 @@ import pytest
 from kbc_game.app import app, mysql, accepted_uid
 from flask import session
 import werkzeug
-werkzeug.__version__ = "2.3.3"
-
+werkzeug._version_="2.3.3"
 
 @pytest.fixture
 def client():
@@ -33,13 +32,13 @@ def test_admin_login_page(client):
 def test_user_registration(client):
     test_data = {
         "name": "Test User",
-        "email": "testuser@example.com",
+        "email": "testuser99@example.com",
         "dob": "1995-05-20",
         "qualification": "Graduate"
     }
     response = client.post("/user_login", data=test_data, follow_redirects=True)
     assert response.status_code == 200
-    # assert b'Waiting' in response.data  # Ensuring user is in the waiting phase
+    assert b'waiting' in response.data  # Ensuring user is in the waiting phase
 
 # 🛑 Test User Registration (Missing Fields)
 def test_user_registration_missing_fields(client):
@@ -145,3 +144,30 @@ def test_get_all_questions(client):
     response = client.get("/get_all_questions")
     assert response.status_code == 200
     assert b"question" in response.data  # Ensure questions list is returned
+
+
+# ✅ Test Not Selected Page Access
+def test_not_selected_page(client):
+    response = client.get("/not_selected")
+    assert response.status_code == 200
+
+# ✅ Test Logout Functionality
+def test_logout(client):
+    with client.session_transaction() as sess:
+        sess["uid"] = "test_uid"
+    response = client.get("/logout", follow_redirects=True)
+    assert response.status_code == 200
+
+# ✅ Test Rendering Game Page for Accepted User
+def test_game_page_rendering(client):
+    with client.session_transaction() as sess:
+        sess["uid"] = "accepted_uid1"
+        sess["name"] = "Accepted User"
+    
+    response = client.get("/game/accepted_uid1")
+    assert response.status_code == 302
+
+# 🛑 Test User Not Found
+def test_user_not_found(client):
+    response = client.get("/check_user/non_existent_uid")
+    assert response.status_code == 404
