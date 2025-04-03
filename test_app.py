@@ -2,7 +2,8 @@ import pytest
 from kbc_game.app import app, mysql, accepted_uid
 from flask import session
 import werkzeug
-werkzeug.__version__ = "2.0.3"  # Mock version attribute for compatibility
+werkzeug.__version__ = "2.3.3"
+
 
 @pytest.fixture
 def client():
