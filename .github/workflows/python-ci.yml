@@ -56,7 +56,7 @@ jobs:
         env:
           MYSQL_HOST: localhost
           MYSQL_USER: root
-          MYSQL_PASSWORD: rootpassword
+          MYSQL_PASSWORD: Aditya@9476
           MYSQL_DB: test_kbc_game
         run: |
           mysql --host=localhost --user=root --password=rootpassword test_kbc_game < setup_db.sql
@@ -66,7 +66,7 @@ jobs:
         env:
           MYSQL_HOST: localhost
           MYSQL_USER: root
-          MYSQL_PASSWORD: rootpassword
+          MYSQL_PASSWORD: Aditya@9476
           MYSQL_DB: test_kbc_game
         run: pytest --maxfail=5 --disable-warnings --tb=short
 
