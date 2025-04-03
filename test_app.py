@@ -1,5 +1,5 @@
 import pytest
-from app import app, mysql, accepted_uid
+from kbc_game.app import app, mysql, accepted_uid
 from flask import session
 
 @pytest.fixture
