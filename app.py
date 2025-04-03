@@ -167,7 +167,7 @@ def not_selected():
 @app.route('/logout')
 def logout():
     session.clear()
-    return redirect(url_for('login'))
+    return redirect(url_for('index'))
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0",port=5000,debug=True)
