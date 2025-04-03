@@ -306,17 +306,32 @@ function enableAllButtons() {
 
 function resetTimer() {
   clearInterval(timer);
-  timeLeft = 10000;
+  timeLeft = 45;
   document.getElementById("clock").innerText = timeLeft;
 
   timer = setInterval(() => {
     timeLeft--;
     document.getElementById("clock").innerText = timeLeft;
 
-    if (timeLeft <= 0) {
-      clearInterval(timer);
-      alert("Time's up! Game Over!");
-      resetGame();
+    if (timeLeft <= 1) {
+      setTimeout(() => {
+        if (safe == '0') {
+          document.getElementById("question").innerText = `Time UP! Game Over!\nYou have won nothing`;
+          document.getElementById("options").innerHTML = "";
+          clearInterval(timer);
+          disableAllButtons();
+          disableAllLifelines();
+          return;
+        }
+        else {
+          document.getElementById("question").innerText = `Time UP! Game Over!\nYou have won : ${safe}`;
+          document.getElementById("options").innerHTML = "";
+          clearInterval(timer);
+          disableAllButtons();
+          disableAllLifelines();
+          return;
+        }
+      }, 1500);
     }
   }, 1000);
 }
@@ -360,61 +375,78 @@ function useFiftyFifty() {
 
 function useAudiencePoll() {
   if (lifelinesUsed.audiencePoll || !questions[idx]) return;
+
   document.getElementById("audience-poll").classList.add("used");
   lifelinesUsed.audiencePoll = true;
+
   const correctAnswer = questions[idx].answer;
   const options = document.querySelectorAll(".option");
 
-  let results = [];
-  options.forEach(option => {
-    if (option.innerText === correctAnswer) {
-      results.push({
-        option: option.innerText[0],
-        percentage: Math.floor(Math.random() * 31) + 50
-      });
-    } else {
-      results.push({
-        option: option.innerText[0],
-        percentage: 0
-      });
-    }
-  });
+  let results = [
+    { option: "A", percentage: 0 },
+    { option: "B", percentage: 0 },
+    { option: "C", percentage: 0 },
+    { option: "D", percentage: 0 }
+  ];
 
-  const remainingPercentage = 100 - results.find(r => r.option[0] === correctAnswer[0]).percentage;
-  const incorrectOptions = results.filter(r => r.option[0] !== correctAnswer[0]);
-  let allocatedPercentage = 0;
-  for (let i = 0; i < incorrectOptions.length; i++) {
-    if (i === incorrectOptions.length - 1) {
-      incorrectOptions[i].percentage = remainingPercentage - allocatedPercentage;
-    } else {
-      const randomPercentage = Math.floor(Math.random() * (remainingPercentage - allocatedPercentage));
-      incorrectOptions[i].percentage = randomPercentage;
+  let remainingOptions = Array.from(options).filter(option => option.style.visibility !== "hidden"); // Only visible options
+
+  if (remainingOptions.length === 2) {
+    // 50-50 case (one correct, one incorrect)
+    const correctPercentage = Math.floor(Math.random() * 31) + 60; // Between 60% - 90%
+    const incorrectPercentage = 100 - correctPercentage;
+
+    remainingOptions.forEach(option => {
+      const optionLetter = option.innerText[0];
+      if (option.innerText === correctAnswer) {
+        results["ABCD".indexOf(optionLetter)].percentage = correctPercentage;
+      } else {
+        results["ABCD".indexOf(optionLetter)].percentage = incorrectPercentage;
+      }
+    });
+
+  } else {
+    // Normal case (4 options)
+    let allocatedPercentage = 0;
+    let correctPercentage = Math.floor(Math.random() * 31) + 50; // Between 50% - 80%
+    let remainingPercentage = 100 - correctPercentage;
+
+    results["ABCD".indexOf(correctAnswer[0])].percentage = correctPercentage;
+
+    let incorrectOptions = results.filter(r => r.option !== correctAnswer[0]);
+
+    for (let i = 0; i < incorrectOptions.length; i++) {
+      let randomPercentage = i === incorrectOptions.length - 1
+        ? remainingPercentage - allocatedPercentage
+        : Math.floor(Math.random() * (remainingPercentage - allocatedPercentage));
+
+      results["ABCD".indexOf(incorrectOptions[i].option)].percentage = randomPercentage;
       allocatedPercentage += randomPercentage;
     }
   }
 
-  const dialog = document.getElementById("audiencePollDialog");
-  const ctx = document.getElementById('pollChart').getContext('2d');
+  // Display the graph
+  showAudiencePollGraph(results);
+}
 
-  new Chart(ctx, {
-    type: 'bar',
+
+function showAudiencePollGraph(results) {
+  const dialog = document.getElementById("audiencePollDialog");
+  const ctx = document.getElementById("pollChart").getContext("2d");
+
+  if (window.pollChartInstance) {
+    window.pollChartInstance.destroy(); // Destroy previous chart instance
+  }
+
+  window.pollChartInstance = new Chart(ctx, {
+    type: "bar",
     data: {
       labels: results.map(r => r.option),
       datasets: [{
-        label: 'Audience Votes',
+        label: "Audience Votes",
         data: results.map(r => r.percentage),
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.8)',
-          'rgba(54, 162, 235, 0.8)',
-          'rgba(255, 206, 86, 0.8)',
-          'rgba(75, 192, 192, 0.8)'
-        ],
-        borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)'
-        ],
+        backgroundColor: ["#ff6384", "#36a2eb", "#ffce56", "#4bc0c0"],
+        borderColor: ["#ff6384", "#36a2eb", "#ffce56", "#4bc0c0"],
         borderWidth: 1
       }]
     },
@@ -432,13 +464,11 @@ function useAudiencePoll() {
         }
       },
       plugins: {
-        legend: {
-          display: false
-        },
+        legend: { display: false },
         tooltip: {
           callbacks: {
             label: function (context) {
-              return context.parsed.y + '%';
+              return context.parsed.y + "%";
             }
           }
         }
@@ -448,10 +478,11 @@ function useAudiencePoll() {
 
   dialog.showModal();
 
-  dialog.querySelector('.close-dialog').addEventListener('click', () => {
+  dialog.querySelector(".close-dialog").addEventListener("click", () => {
     dialog.close();
   });
 }
+
 
 function useAskExpert() {
   if (lifelinesUsed.askExpert || !questions[idx]) return;
@@ -490,3 +521,5 @@ function useFlip() {
   questionIndex++;
   loadQuestion();
 }
+
+module.exports = { strToint, updatePrizeHighlight, resetGame, prizes, currentPrizeIndex };

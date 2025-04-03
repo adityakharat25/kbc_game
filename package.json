@@ -1,0 +1,26 @@
+{
+  "name": "kbc_game",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adityakharat25/kbc_game.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adityakharat25/kbc_game/issues"
+  },
+  "homepage": "https://github.com/adityakharat25/kbc_game#readme",
+  "description": "",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  }
+
+
+}

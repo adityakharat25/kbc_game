@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #0c0c3c 0%, #1a1a5a 100%);
+    background-size: cover;
+    margin: 0;
+    text-align: center;
+  }
+  .container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 400px;
+    color: rgb(255, 255, 255);
+  }
+  .waiting {
+    color: #d1b40e;
+    margin-bottom: 40px;
+  }
+  h2 { margin-bottom: 20px; }
+  p { font-size: 1.2em; }

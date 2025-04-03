@@ -85,7 +85,7 @@ def waiting(uid):
 @app.route('/admin_page')
 def admin_page():
     if not session.get('admin'):
-        return redirect(url_for('login'))
+        return redirect(url_for('admin_login'))
 
     cursor = mysql.connection.cursor()
     cursor.execute("SELECT * FROM users WHERE status = 'waiting'")
