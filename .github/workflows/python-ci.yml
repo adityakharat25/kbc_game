@@ -21,7 +21,7 @@ jobs:
         ports:
           - 3306:3306
         options: >-
-          --health-cmd="mysqladmin ping -h localhost"
+          --health-cmd="mysqladmin ping -h mysql"
           --health-interval=10s
           --health-timeout=5s
           --health-retries=3
@@ -46,7 +46,7 @@ jobs:
       # Step 4: Wait for MySQL service to start
       - name: Wait for MySQL service to start
         run: |
-          until mysqladmin ping -h localhost --silent; do
+          until mysqladmin ping -h mysql --silent; do
             echo "Waiting for MySQL..."
             sleep 5
           done
@@ -54,7 +54,7 @@ jobs:
       # Step 5: Set up test database schema
       - name: Set up test database schema
         env:
-          MYSQL_HOST: localhost
+          MYSQL_HOST: mysql
           MYSQL_USER: root
           MYSQL_PASSWORD: Aditya@9476
           MYSQL_DB: test_kbc_game
@@ -64,7 +64,7 @@ jobs:
       # Step 6: Run tests using pytest
       - name: Run tests with pytest
         env:
-          MYSQL_HOST: localhost
+          MYSQL_HOST: mysql
           MYSQL_USER: root
           MYSQL_PASSWORD: Aditya@9476
           MYSQL_DB: test_kbc_game
