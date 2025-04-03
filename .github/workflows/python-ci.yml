@@ -12,8 +12,22 @@ jobs:
   build-and-test:
     runs-on: ubuntu-latest
 
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: rootpassword
+          MYSQL_DATABASE: test_kbc_game
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping -h localhost"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=3
+
     steps:
-      # Step 1: Checkout the code
+      # Step 1: Checkout code
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -29,13 +43,30 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      # Step 4: Run tests using pytest
-      - name: Run tests
-        run: pytest --maxfail=5 --disable-warnings --tb=short
-
-      # Step 5: Check code formatting with flake8 (optional)
-      - name: Lint code with flake8
+      # Step 4: Wait for MySQL service to start
+      - name: Wait for MySQL service to start
         run: |
-          pip install flake8
-          flake8 app.py test_app.py script.js --max-line-length=120
+          until mysqladmin ping -h localhost --silent; do
+            echo "Waiting for MySQL..."
+            sleep 5
+          done
+
+      # Step 5: Set up test database schema
+      - name: Set up test database schema
+        env:
+          MYSQL_HOST: localhost
+          MYSQL_USER: root
+          MYSQL_PASSWORD: rootpassword
+          MYSQL_DB: test_kbc_game
+        run: |
+          mysql --host=localhost --user=root --password=rootpassword test_kbc_game < setup_db.sql
+
+      # Step 6: Run tests using pytest
+      - name: Run tests with pytest
+        env:
+          MYSQL_HOST: localhost
+          MYSQL_USER: root
+          MYSQL_PASSWORD: rootpassword
+          MYSQL_DB: test_kbc_game
+        run: pytest --maxfail=5 --disable-warnings --tb=short
 
