@@ -521,5 +521,3 @@ function useFlip() {
   questionIndex++;
   loadQuestion();
 }
-
-module.exports = { strToint, updatePrizeHighlight, resetGame, prizes, currentPrizeIndex };
