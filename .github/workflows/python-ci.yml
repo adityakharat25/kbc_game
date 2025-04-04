@@ -14,7 +14,7 @@ jobs:
         image: mysql:8.0
         env:
           MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: test_kbc_game
+          MYSQL_DATABASE: kbc_game
           MYSQL_USER: user
           MYSQL_HOST: 127.0.0.1
         ports:
