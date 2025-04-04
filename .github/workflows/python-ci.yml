@@ -13,8 +13,8 @@ jobs:
       mysql:
         image: mysql:8.0
         env:
-          MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
-          MYSQL_DATABASE: test_database
+          MYSQL_ROOT_PASSWORD: Aditya@9476
+          MYSQL_DATABASE: test_kbc_game
         ports:
           - 3306:3306
         options: >-
@@ -33,8 +33,8 @@ jobs:
             echo "Waiting for MySQL..."
             sleep 2
           done
-      - run: mysql -h 127.0.0.1 -P 3306 -u root -p${{ secrets.MYSQL_ROOT_PASSWORD }} test_database < schema.sql
-      - run: python run_tests.py
+      - run: mysql -h 127.0.0.1 -P 3306 -u root -p Aditya@9476 test_kbc_game < schema.sql
+      - run: pytest test_app.py
 
   lint:
     runs-on: ubuntu-latest
