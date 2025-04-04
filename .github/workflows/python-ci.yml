@@ -1,72 +1,47 @@
-name: CI Pipeline for KBC Game
+name: CI Pipeline
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
-  build-and-test:
+  test:
     runs-on: ubuntu-latest
-
     services:
       mysql:
         image: mysql:8.0
         env:
-          MYSQL_ROOT_PASSWORD: Aditya@9476
-          MYSQL_DATABASE: test_kbc_game
+          MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
+          MYSQL_DATABASE: test_database
         ports:
           - 3306:3306
         options: >-
-          --health-cmd="mysqladmin ping -h mysql"
-          --health-interval=10s
-          --health-timeout=5s
+          --health-cmd="mysqladmin ping --silent" 
+          --health-interval=10s 
+          --health-timeout=5s 
           --health-retries=3
-
     steps:
-      # Step 1: Checkout code
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      # Step 2: Set up Python environment
-      - name: Set up Python
-        uses: actions/setup-python@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
         with:
-          python-version: 3.9
-
-      # Step 3: Install dependencies
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      # Step 4: Wait for MySQL service to start
-      - name: Wait for MySQL service to start
-        run: |
-          until mysqladmin ping -h mysql --silent; do
+          python-version: "3.9"
+      - run: pip install -r requirements.txt
+      - run: |
+          until mysqladmin ping -h "127.0.0.1" --silent; do
             echo "Waiting for MySQL..."
-            sleep 5
+            sleep 2
           done
+      - run: mysql -h 127.0.0.1 -P 3306 -u root -p${{ secrets.MYSQL_ROOT_PASSWORD }} test_database < schema.sql
+      - run: python run_tests.py
 
-      # Step 5: Set up test database schema
-      - name: Set up test database schema
-        env:
-          MYSQL_HOST: mysql
-          MYSQL_USER: root
-          MYSQL_PASSWORD: Aditya@9476
-          MYSQL_DB: test_kbc_game
-        run: |
-          mysql --host=localhost --user=root --password=rootpassword test_kbc_game < setup_db.sql
-
-      # Step 6: Run tests using pytest
-      - name: Run tests with pytest
-        env:
-          MYSQL_HOST: mysql
-          MYSQL_USER: root
-          MYSQL_PASSWORD: Aditya@9476
-          MYSQL_DB: test_kbc_game
-        run: pytest --maxfail=5 --disable-warnings --tb=short
-
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+      - run: pip install -r requirements.txt
+      - run: flake8 .
