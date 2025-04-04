@@ -1,5 +1,5 @@
 import pytest
-from kbc_game.app import app, mysql, accepted_uid
+from kbc_game.app import mysql, accepted_uid, create_app, app
 from flask import session
 import werkzeug
 werkzeug.version="2.3.3"
@@ -9,9 +9,9 @@ def client():
     app.config["TESTING"] = True
     app.config["WTF_CSRF_ENABLED"] = False  # Disable CSRF for testing
     app.config["MYSQL_DB"] = "test_kbc_game"  # Use a test database if needed
-    client = app.test_client()
-    with app.app_context():
-        yield client
+    with app.test_client() as client:
+        with app.app_context():
+            yield client
 
 # ✅ Test Homepage
 def test_home(client):
