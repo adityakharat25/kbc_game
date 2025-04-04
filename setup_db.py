@@ -20,6 +20,7 @@ TABLES = {
     """,
 }
 
+
 def setup_database():
     try:
         # Connect to MySQL Server
