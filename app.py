@@ -1,24 +1,26 @@
-from flask import Flask, render_template, request, redirect, url_for, session, jsonify,flash
-import uuid
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from flask_mysqldb import MySQL
-import json
-app = Flask(__name__)
-app.secret_key = 'your_secret_key_here'  # Replace with a secure random key
+import uuid, os, json
 
-
-import os
-
-app.config['MYSQL_HOST'] = os.getenv('MYSQL_HOST', '127.0.0.1')  # Use 127.0.0.1 instead of localhost
-app.config['MYSQL_USER'] = os.getenv('MYSQL_USER', 'root')
-app.config['MYSQL_PASSWORD'] = os.getenv('MYSQL_PASSWORD', 'Aditya@9476')
-app.config['MYSQL_DB'] = os.getenv('MYSQL_DB', 'kbc_game')
-
-app.config['MYSQL_CURSORCLASS'] = 'DictCursor'  # Use dictionary cursor for query results
-
-mysql = MySQL(app)
-
-# Global variable to store the accepted user's unique ID
+mysql = MySQL()  # Not bound to any app yet
 accepted_uid = None
+
+def create_app(test_config=None):
+    app = Flask(__name__)
+    app.secret_key = 'your_secret_key_here'
+
+    # Default config
+    app.config['MYSQL_HOST'] = os.getenv('MYSQL_HOST', '127.0.0.1')
+    app.config['MYSQL_USER'] = os.getenv('MYSQL_USER', 'root')
+    app.config['MYSQL_PASSWORD'] = os.getenv('MYSQL_PASSWORD', 'Aditya@9476')
+    app.config['MYSQL_DB'] = os.getenv('MYSQL_DB', 'kbc_game')
+    app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+
+    # Apply test config if provided
+    if test_config:
+        app.config.update(test_config)
+
+    mysql.init_app(app)
 
 
 # Questions data
