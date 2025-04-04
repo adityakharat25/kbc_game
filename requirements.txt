@@ -1,4 +1,4 @@
-Flask==2.3.3
-flask-mysqldb==0.2.0
-mysqlclient==2.1.1
-unittest2==1.1.0
+Flask
+flask-mysqldb
+pytest
+werkzeug==2.3.3
