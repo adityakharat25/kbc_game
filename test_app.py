@@ -1,8 +1,8 @@
 import pytest
 from kbc_game.app import app, mysql, accepted_uid
 from flask import session
-import werkzeug
-werkzeug._version_="2.3.3"
+#import werkzeug
+#werkzeug._version_="2.3.3"
 
 @pytest.fixture
 def client():
