@@ -18,25 +18,43 @@ jobs:
         ports:
           - 3306:3306
         options: >-
-          --health-cmd="mysqladmin ping --silent" 
-          --health-interval=10s 
-          --health-timeout=5s 
+          --health-cmd="mysqladmin ping -h 127.0.0.1 --silent"
+          --health-interval=10s
+          --health-timeout=5s
           --health-retries=3
     steps:
       - uses: actions/checkout@v3
+      
+      - name: Install system dependencies
+        run: sudo apt-get install -y python3-dev libmysqlclient-dev
+      
       - uses: actions/setup-python@v4
         with:
           python-version: "3.9"
-      - run: pip install -r requirements.txt
-      - run: |
-          until mysqladmin ping -h "127.0.0.1" --silent; do
-            echo "Waiting for MySQL..."
+      
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      - name: Wait for MySQL
+        run: |
+          for i in {1..10}; do
+            if mysqladmin ping -h 127.0.0.1 --silent; then
+              break
+            fi
+            echo "Waiting for MySQL... Attempt $i/10"
             sleep 2
           done
-      # Run the Python script to set up the database and tables
-      - run: python setup_db.py
-      # Run the tests
-      - run: pytest test_app.py
+      
+      - name: Setup database
+        env:
+          MYSQL_HOST: 127.0.0.1
+          MYSQL_PORT: 3306
+        run: python setup_db.py
+
+      - name: Run tests
+        run: pytest test_app.py
 
   lint:
     runs-on: ubuntu-latest
