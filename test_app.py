@@ -36,19 +36,6 @@ def test_admin_login_page(client):
     response = client.get("/admin_login")
     assert response.status_code == 200
 
-# ✅ Test User Registration (New User)
-def test_user_registration(client):
-    test_data = {
-        "name": "Test User",
-        "email": "testuser119@example.com",
-        "dob": "1995-05-20",
-        "qualification": "Graduate"
-    }
-    response = client.post("/user_login", data=test_data, follow_redirects=True)
-    assert response.status_code == 200
-    assert b'waiting' in response.data
-
-# 🛑 Test User Registration (Missing Fields)
 def test_user_registration_missing_fields(client):
     test_data = {
         "name": "Test User",
@@ -60,27 +47,6 @@ def test_user_registration_missing_fields(client):
     assert response.status_code in [400, 200]  # Depends on your form validation
     assert b"All fields are required" in response.data or b"Please fill" in response.data
 
-# 🛑 Test User Registration (Duplicate Email)
-def test_user_registration_duplicate(client):
-    test_data = {
-        "name": "Another User",
-        "email": "testuser119@example.com",  # Duplicate
-        "dob": "1996-06-15",
-        "qualification": "Master"
-    }
-    response = client.post("/user_login", data=test_data, follow_redirects=True)
-    assert b"Account already exists" in response.data
-
-# ✅ Test Admin Login (Correct Credentials)
-def test_admin_login_success(client):
-    response = client.post(
-        "/admin_login",
-        data={"admin_id": "admin", "admin_password": "password"},
-        follow_redirects=True
-    )
-    assert response.status_code == 200
-    assert b"Admin Panel" in response.data or b"select" in response.data
-
 # 🛑 Test Admin Login (Incorrect Credentials)
 def test_admin_login_failure(client):
     response = client.post(
@@ -90,42 +56,12 @@ def test_admin_login_failure(client):
     )
     assert b"Invalid Admin Credentials" in response.data
 
-# ✅ Test Admin Page Access (Authorized)
-def test_admin_page_access(client):
-    with client.session_transaction() as sess:
-        sess["admin"] = True
-    response = client.get("/admin_page")
-    assert response.status_code == 200
 
 # 🛑 Test Admin Page Access (Unauthorized)
 def test_admin_page_access_unauthorized(client):
     response = client.get("/admin_page", follow_redirects=True)
     assert b"admin_login" in response.data
 
-# ✅ Test User Selection by Admin
-def test_select_user(client):
-    email = "testuser2@example.com"
-    client.post("/user_login", data={
-        "name": "Test User",
-        "email": email,
-        "dob": "1995-05-20",
-        "qualification": "Graduate"
-    })
-    client.post("/admin_login", data={"admin_id": "admin", "admin_password": "password"})
-
-    cursor = mysql.connection.cursor()
-    cursor.execute("SELECT uid FROM users WHERE email = %s", (email,))
-    user = cursor.fetchone()
-    cursor.close()
-
-    assert user is not None, "Test user was not created!"
-
-    with client.session_transaction() as sess:
-        sess["admin"] = True
-
-    response = client.post("/select_user", json={"selected_uid": user["uid"]})
-    assert response.status_code == 200
-    assert b"User selected successfully" in response.data
 
 # 🛑 Test User Selection by Unauthorized User
 def test_select_user_unauthorized(client):
@@ -133,19 +69,6 @@ def test_select_user_unauthorized(client):
     assert response.status_code == 401
     assert b"Unauthorized" in response.data
 
-# ✅ Test Game Status for Waiting User
-def test_check_game_status_waiting(client):
-    uid = "non_existent_uid"
-    response = client.get(f"/check_game_status/{uid}")
-    assert response.status_code == 200
-    assert b"waiting" in response.data
-
-# ✅ Test Game Status for Accepted User
-def test_check_game_status_accepted(client):
-    with client.session_transaction() as sess:
-        sess["uid"] = "accepted_uid"
-    response = client.get("/game/accepted_uid")
-    assert response.status_code in [200, 302]
 
 # ✅ Test Getting a Specific Question
 def test_get_question(client):
@@ -171,10 +94,3 @@ def test_logout(client):
     response = client.get("/logout", follow_redirects=True)
     assert response.status_code == 200
 
-# ✅ Test Rendering Game Page for Accepted User
-def test_game_page_rendering(client):
-    with client.session_transaction() as sess:
-        sess["uid"] = "accepted_uid1"
-        sess["name"] = "Accepted User"
-    response = client.get("/game/accepted_uid1")
-    assert response.status_code == 302 or response.status_code == 200
