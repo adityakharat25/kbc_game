@@ -33,7 +33,9 @@ jobs:
             echo "Waiting for MySQL..."
             sleep 2
           done
-      - run: mysql -h 127.0.0.1 -P 3306 -u root -p Aditya@9476 test_kbc_game < schema.sql
+      # Run the Python script to set up the database and tables
+      - run: python setup_db.py
+      # Run the tests
       - run: pytest test_app.py
 
   lint:
