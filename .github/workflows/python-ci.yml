@@ -39,11 +39,11 @@ jobs:
       
       - name: Wait for MySQL
         run: |
-          for i in {1..10}; do
-            if mysqladmin ping -h "127.0.0.1" --silent; then
+          for i in {1..20}; do
+            if mysqladmin ping -h "127.0.0.1" -P 3306 -u root -p$${{ secrets.MYSQL_ROOT_PASSWORD }} --silent; then
               break
             fi
-            echo "Waiting for MySQL... Attempt $i/10"
+            echo "Waiting for MySQL... Attempt $i/20"
             sleep 2
           done
       
