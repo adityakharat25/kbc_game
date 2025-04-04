@@ -23,7 +23,7 @@ TABLES = {
 def setup_database():
     try:
         # Connect to MySQL Server
-        connection = MySQLdb.connect(host=DB_HOST, user=DB_USER, password=DB_PASSWORD, db=test_kbc_game)
+        connection = MySQLdb.connect(host=DB_HOST, user=DB_USER, password=DB_PASSWORD, db=TEST_DB_NAME)
         cursor = connection.cursor()
         
         # Create test database if it doesn't exist
