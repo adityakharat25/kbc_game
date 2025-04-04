@@ -5,11 +5,14 @@ import json
 app = Flask(__name__)
 app.secret_key = 'your_secret_key_here'  # Replace with a secure random key
 
-# MySQL Configuration
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'         # Change to your MySQL username
-app.config['MYSQL_PASSWORD'] = 'Aditya@9476'  # Change to your MySQL password
-app.config['MYSQL_DB'] = 'kbc_game'
+
+import os
+
+app.config['MYSQL_HOST'] = os.getenv('MYSQL_HOST', '127.0.0.1')  # Use 127.0.0.1 instead of localhost
+app.config['MYSQL_USER'] = os.getenv('MYSQL_USER', 'root')
+app.config['MYSQL_PASSWORD'] = os.getenv('MYSQL_PASSWORD', 'Aditya@9476')
+app.config['MYSQL_DB'] = os.getenv('MYSQL_DB', 'kbc_game')
+
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'  # Use dictionary cursor for query results
 
 mysql = MySQL(app)
