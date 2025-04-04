@@ -1,20 +1,32 @@
+import os
 import pytest
-from kbc_game.app import mysql, accepted_uid, create_app
+from kbc_game.app import app, accepted_uid
+from flask_mysqldb import MySQL
 from flask import session
+import werkzeug
+werkzeug.version="2.3.3"
+
+app.config['MYSQL_HOST'] = os.getenv('MYSQL_HOST', '127.0.0.1')  # Use 127.0.0.1 instead of localhost
+app.config['MYSQL_USER'] = os.getenv('MYSQL_USER', 'user')
+app.config['MYSQL_PASSWORD'] = os.getenv('MYSQL_PASSWORD', 'root')
+app.config['MYSQL_DB'] = os.getenv('MYSQL_DB', 'kbc_game')
+
+app.config['MYSQL_CURSORCLASS'] = 'DictCursor'  # Use dictionary cursor for query results
+
+mysql = MySQL(app)
 
 @pytest.fixture
-def app():
-    app = create_app()
+def client():
     app.config["TESTING"] = True
-    app.config["WTF_CSRF_ENABLED"] = False
-    app.config["MYSQL_DB"] = "test_kbc_game"  # Use test DB
-    return app
+    app.config["WTF_CSRF_ENABLED"] = False  # Disable CSRF for testing
+    app.config['MYSQL_HOST'] = os.getenv('MYSQL_HOST', '127.0.0.1')  # Use 127.0.0.1 instead of localhost
+    app.config['MYSQL_USER'] = os.getenv('MYSQL_USER', 'user')
+    app.config['MYSQL_PASSWORD'] = os.getenv('MYSQL_PASSWORD', 'root')
+    app.config['MYSQL_DB'] = os.getenv('MYSQL_DB', 'kbc_game')
 
-@pytest.fixture
-def client(app):
-    with app.test_client() as client:
-        with app.app_context():
-            yield client
+    client = app.test_client()
+    with app.app_context():
+        yield client
 
 # ✅ Test Homepage
 def test_home(client):
