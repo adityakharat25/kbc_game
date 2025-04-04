@@ -1,5 +1,5 @@
 import pytest
-from kbc_game.app import mysql, accepted_uid, create_app, app
+from kbc_game.app import mysql, accepted_uid, create_app
 from flask import session
 import werkzeug
 werkzeug.version="2.3.3"
