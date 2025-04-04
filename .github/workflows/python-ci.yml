@@ -13,8 +13,10 @@ jobs:
       mysql:
         image: mysql:8.0
         env:
-          MYSQL_ROOT_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
+          MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: test_kbc_game
+          MYSQL_USER: root
+          MYSQL_HOST: 127.0.0.1
         ports:
           - 3306:3306
         options: >-
@@ -52,7 +54,7 @@ jobs:
           MYSQL_HOST: 127.0.0.1
           MYSQL_PORT: 3306
           MYSQL_USER: root
-          MYSQL_PASSWORD: ${{ secrets.MYSQL_ROOT_PASSWORD }}
+          MYSQL_PASSWORD: root
         run: python setup_db.py
 
       - name: Run tests
