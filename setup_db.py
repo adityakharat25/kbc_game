@@ -3,7 +3,7 @@ import MySQLdb
 # Database credentials
 DB_HOST = "127.0.0.1"
 DB_USER = "root"  # Change if needed
-DB_PASSWORD = "Aditya@9476"  # Change to your MySQL password
+DB_PASSWORD = "root"  # Change to your MySQL password
 TEST_DB_NAME = "test_kbc_game"
 
 # Table creation queries
