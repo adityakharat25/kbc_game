@@ -2,3 +2,4 @@ Flask
 flask-mysqldb
 pytest
 werkzeug==2.3.3
+flake8
